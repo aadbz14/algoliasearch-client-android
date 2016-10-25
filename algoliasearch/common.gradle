@@ -55,10 +55,13 @@ android {
                 events "skipped", "failed", "standardOut", "standardError"
                 exceptionFormat "full"
                 outputs.upToDateWhen { false }
+
+                //TODO: Remove sdk=23 once Robolectric supports SDK24 (https://github.com/robolectric/robolectric/issues/2554)
+                systemProperty 'robolectric.sdk', 23
             }
         }
-}
     }
+}
 configurations {
     // Configuration solely created to make the Android classpath available when compiling Javadocs.
     // Taken from: <http://stackoverflow.com/questions/29663918/android-gradle-javadoc-annotation-does-not-exists>.
